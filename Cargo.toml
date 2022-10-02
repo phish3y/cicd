@@ -1,0 +1,5 @@
+[package]
+
+name = "cicd"
+version = "0.0.1"
+authors = [ "phish3y" ]
