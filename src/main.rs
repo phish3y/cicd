@@ -1,8 +1,7 @@
-use std::{fs, net::{TcpListener, TcpStream}, io::{BufReader, BufRead, Write}};
+use std::{net::{TcpListener, TcpStream}, io::{BufReader, BufRead, Write}};
 
 fn main() {
-    let listener: TcpListener = TcpListener::bind("127.0.0.1:7878").unwrap();
-
+    let listener: TcpListener = TcpListener::bind("0.0.0.0:7878").unwrap();
     for stream in listener.incoming() {
         let stream: TcpStream = stream.unwrap();
         handle_connection(stream)
@@ -20,7 +19,7 @@ fn handle_connection(mut stream: TcpStream) {
     println!("Request: {:#?}", http_request);
 
     let status_line: &str = "HTTP/1.1 200 OK";
-    let contents: String = fs::read_to_string("response.json").unwrap();
+    let contents: &str = include_str!("../response.json");
     let length: usize = contents.len();
 
     let response: String = format!("{status_line}\r\nContent-Length: {length}\r\n\r\n{contents}");

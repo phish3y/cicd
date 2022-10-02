@@ -8,5 +8,9 @@ up: build
 
 .PHONY: down
 down:
-	docker kill $(shell docker ps -q)
-	docker rm $(shell docker ps -a -q)
+	@for container in $(shell docker ps -q); do \
+		docker kill $$container; \
+	done
+	@for container in $(shell docker ps -a -q); do \
+		docker rm $$container; \
+	done
