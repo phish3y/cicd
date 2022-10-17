@@ -8,6 +8,8 @@ jobs:
   push:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      
       - name: configure-aws-creds
         uses: aws-actions/configure-aws-credentials@v1
         with:
