@@ -11,7 +11,8 @@ jobs:
       - name: configure-aws-creds
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::395440373408:role/roleoidc-Role-78GQABCEF654
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-2
 
       - name: login-ecr
