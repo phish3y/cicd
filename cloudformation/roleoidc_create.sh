@@ -1,1 +1,0 @@
-aws cloudformation create-stack --stack-name roleoidc --template-body file:///home/phish3y/dev/cicd/cloudformation/roleoidc.yaml --parameters ParameterKey=GitHubOrg,ParameterValue=phish3y ParameterKey=RepositoryName,ParameterValue=cicd --capabilities CAPABILITY_NAMED_IAM
