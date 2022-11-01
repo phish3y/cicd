@@ -35,9 +35,9 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          cache-from: type=registry,ref=ghcr.io/${{ github.repository }}/cicd_server:latest
+          cache-from: type=registry,ref=ghcr.io/${{ github.repository }}:latest
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/cicd_server:latest
+            ghcr.io/${{ github.repository }}:latest
       
    
