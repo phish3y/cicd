@@ -1,6 +1,12 @@
 version: "3.9"
 services:
-  server:
-    build: .
+  rustserv:
+    build: 
+      context: .
+      dockerfile: docker/rust.Dockerfile
     ports:
       - "7878:7878"
+  goroutines:
+    build: 
+      context: .
+      dockerfile: docker/go.Dockerfile
